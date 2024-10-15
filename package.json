@@ -1,0 +1,34 @@
+{
+  "name": "vue-rewrite",
+  "private": false,
+  "version": "0.0.1",
+  "files": [
+    "dist/*"
+  ],
+  "keywords": [
+    "vue-rewrite"
+  ],
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "author": {
+    "name": "Baozoulolw",
+    "email": "Baozoulolw@Gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test": "vitest --ui",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@vitest/ui": "^2.1.3",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.8",
+    "vite-plugin-dts": "^4.2.4",
+    "vitest": "^2.1.3"
+  }
+}
