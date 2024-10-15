@@ -3,10 +3,17 @@ declare type EffectOptions = {
   scheduler?: (fn: Function) => void;
 };
 
-declare type ObjectKey = string | number | symbol
+declare type ObjectKey = string | symbol
+
+declare type EffectSet = Set<Function>;
+declare type KeyMap = Map<ObjectKey, EffectSet>;
+declare type EffectMaps = WeakMap<object, KeyMap>
 
 
 export type {
   EffectOptions,
-  ObjectKey
+  ObjectKey,
+  EffectSet,
+  KeyMap,
+  EffectMaps
 }
