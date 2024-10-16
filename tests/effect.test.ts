@@ -1,8 +1,14 @@
-import { effect } from "../src/main";
-import {test} from 'vitest'
+import { effect, proxy } from "../src/main";
+import { test } from "vitest";
 
-test('effect',() => {
+test("effect", async () => {
+  const proxyObj = proxy({
+    name: "jack",
+    age: 30,
+    live:false
+  });
   effect(() => {
-    console.log('123123')
-  })
+    let name = proxyObj.live ? proxyObj.name : "unLive";
+    console.log(name);
+  });
 })

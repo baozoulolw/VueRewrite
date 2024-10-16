@@ -1,16 +1,16 @@
-import { KeyMap } from "../types/Effect";
-import { effectMaps } from "./variable";
+import { track } from "./track";
+import { trigger } from "./trigger";
 const proxy = <T extends object>(object: T): T => {
   return new Proxy(object, {
     get(target, key, receiver) {
-      const keyMap = effectMaps.has(target) ? effectMaps.get(target) : new Map([[object]]);
-      effectMaps.set(target, keyMap);
+      track(target,key)
       return Reflect.get(target, key, receiver);
     },
     set(target, key, value) {
       Reflect.set(target, key, value);
+      trigger<T>(target,key)
       return true;
-    },
+    }
   });
 };
 
