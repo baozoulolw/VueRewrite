@@ -5,10 +5,21 @@ test("effect", async () => {
   const proxyObj = proxy({
     name: "jack",
     age: 30,
-    live:false
+    live: true,
+    children:{
+      name:'tom'
+    }
   });
-  effect(() => {
-    let name = proxyObj.live ? proxyObj.name : "unLive";
-    console.log(name);
-  });
-})
+  effect(
+    () => {
+      console.log(proxyObj.children.name);
+    },
+    {
+      scheduler: (effect) => {
+        console.log('scheduler执行了')
+        effect()
+      },
+    }
+  );
+  proxyObj.children.name = 'jerry'
+});

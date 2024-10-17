@@ -1,4 +1,4 @@
-import { EffectSet } from "../types/Effect";
+import { EffectSet,EffectOptions } from "../types/Effect";
 
 export const activeEffects: Function[] = [];
 export let activeEffect:Function | undefined = undefined
@@ -14,3 +14,5 @@ export const setActiveEffect = (fn: Function | undefined) => {
 }
 
 export const customEffectFunctionSet = new WeakMap<Function,EffectSet[]>()
+
+export const effectsOptions = new WeakMap<Function,EffectOptions>()
